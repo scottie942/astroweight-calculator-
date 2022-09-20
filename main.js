@@ -1,4 +1,3 @@
-
 let planets = [ 
     ['Pluto', 0.06], 
     ['Neptune', 1.148], 
@@ -13,43 +12,34 @@ let planets = [
     ['Sun', 27.9]
 ];
 
-   let select = document.getElementById("planets")
+let select = document.getElementById("planets");
 
-planets.forEach(function(item) {
-   let option = document.createElement("option")
-   option.value = item[0] 
-    option.text = item[0]
-    select.appendChild(option)
+planets.forEach(function(item){
+    let option = document.createElement("option");
+    option.value = item[0];
+    option.text = item[0];
+    select.appendChild(option);
 });
 
-function calculateWeight(weight, planetName) {
-    for (let i = 0; i < planets.length; i++) {
-       if(planetName == planets[i][0]) {
-           return weight * planets[i][1];
-       } 
+function calculateWeight(weight, planetName){
+    for (let i = 0; i < planets.length; i++){
+        if(planetName == planets[i][0]){
+            return weight * planets[i][1];
+        }
     }
 }
 
 let calculate = document.getElementById("calculate-button");
 
-calculate.onclick = function handleClickEvent() {
+calculate.onclick = function handleClickEvent(){
+    let userWeight = document.getElementById("user-weight").value;
+    let planetName = document.getElementById("planets").value;
+    let result = calculateWeight(userWeight, planetName);
     
-    let userWeight = document.getElementById("user-weight").value
-    let planetName = document.getElementById("planets").value
-   let result = calculateWeight(userWeight, planetName)
-
-if (!userWeight || isNaN(userWeight)) {
-    document.getElementById("output").innerHTML = ""
-} else {
-    document.getElementById("output").innerHTML = 
-    `If you were on <span class="textcolor">${planetName}</span>, you would weigh <span class="textcolor">${Math.round(result*10)/10}</span>lbs!`
-    }  
+    if (!userWeight || isNaN(userWeight)){
+        document.getElementById("output").innerHTML = "";
+    } else {
+        document.getElementById("output").innerHTML =
+        `If you were on <span class="textcolor">${planetName}</span>, you would weigh <span class="textcolor">${Math.round(result*10)/10}</span>lbs!`;
+    }
 }
-
-
-
-
-
-
-
-
