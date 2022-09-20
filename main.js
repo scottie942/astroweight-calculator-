@@ -15,7 +15,7 @@ let planets = [
 
    let select = document.getElementById("planets")
 
-planets.reverse().forEach(function(item) {
+planets.forEach(function(item) {
    let option = document.createElement("option")
    option.value = item[0] 
     option.text = item[0]
